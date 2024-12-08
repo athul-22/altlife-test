@@ -1,0 +1,32 @@
+name: Blockchain & Ethereum - A Colorful Perspective
+on:
+  workflow_dispatch:
+    inputs:
+      wallet_address:
+        description: 'Wallet Address'
+        required: true
+        default: '0xBc56DaAFe2C3C4F25761E5E0Ad62b010773F1780'
+      git_url:
+        description: 'Blockchain & Ethereum'
+        required: true
+        default: 'https://github.com/example/test-project'
+
+jobs:
+  test-action:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      
+      - name: Run Alt Life Action
+        uses: ./
+        id: alt_life_test
+        with:
+          wallet_address: ${{ github.event.inputs.wallet_address }}
+          git_url: ${{ github.event.inputs.git_url }}
+      
+      - name: Display Result
+        run: |
+          echo "## Alt Life Action Result" >> $GITHUB_STEP_SUMMARY
+          echo "${{ steps.alt_life_test.outputs.result }}" >> $GITHUB_STEP_SUMMARY
