@@ -9,7 +9,7 @@ on:
       git_url:
         description: 'Blockchain & Ethereum'
         required: true
-        default: 'https://github.com/example/test-project'
+        default: 'https://github.com/athul-22/altlife-test'
 
 jobs:
   test-action:
