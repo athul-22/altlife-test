@@ -10,6 +10,10 @@ on:
         description: 'Blockchain & Ethereum'
         required: true
         default: 'https://github.com/athul-22/altlife-test'
+      type:
+        description: 'Blockchain & Ethereum'
+        required: false
+        default: 'static'
 
 jobs:
   test-action:
